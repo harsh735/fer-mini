@@ -109,13 +109,13 @@ function App() {
     console.log(window.innerWidth, "innnnnnnner")
     if ('indexedDB' in window) {
       try {
-        model = await tf.loadLayersModel('indexeddb://' + INDEXEDDB_KEY);
+        model = await tf.loadLayersModel('indexeddb://');
 
       }
       catch (e) {
         console.log(e)
         model = await tf.loadLayersModel(MODEL_PATH);
-        model.save('indexeddb://' + INDEXEDDB_KEY)
+        model.save_weights('indexeddb://')
 
       }
     }
